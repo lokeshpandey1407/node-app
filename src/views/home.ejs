@@ -16,11 +16,15 @@
     <main>
       <div class="product-container">
         <h2>Products</h2>
+        <%if(products.length===0) {%>
+        <h2>No products</h2>
+        <%} else {%>
         <ul>
           <% for(const prod of products) {%>
           <li><%=prod.name%> <%=prod.category%></li>
           <%}%>
         </ul>
+        <%}%>
       </div>
     </main>
   </body>
