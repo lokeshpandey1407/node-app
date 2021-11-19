@@ -40,6 +40,17 @@ app.post("/add-product", (req, res, next) => {
     });
     res.redirect("/");
 });
+app.post("/delete-product", (req, res, next) => {
+    const id = req.body.prodId;
+    MyProducts.findByIdAndDelete(id, (err, doc) => {
+        if (!err) {
+            res.redirect("/");
+        }
+        else {
+            console.log("failed to delete data");
+        }
+    });
+});
 try {
     mongoose_1.default.connect(mongodbApi, (err) => {
         if (!err)

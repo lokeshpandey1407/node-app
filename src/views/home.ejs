@@ -22,6 +22,10 @@
         <ul>
           <% for(const prod of products) {%>
           <li><%=prod.name%> <%=prod.category%></li>
+          <form action="/delete-product" method="POST">
+            <input type="hidden" value="<%=prod._id%>" name="prodId" />
+            <button type="submit">delete</button>
+          </form>
           <%}%>
         </ul>
         <%}%>
