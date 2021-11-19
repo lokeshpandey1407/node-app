@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="/"> home</a></li>
+        <li><a href="/add-product"> Add-product</a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="product-container">
+        <h2>Products</h2>
+        <ul>
+          <% for(const prod of products) {%>
+          <li><%=prod.name%> <%=prod.category%></li>
+          <%}%>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
