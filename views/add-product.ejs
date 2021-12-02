@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" media="screen" href="public/navbar.css" />
+    <link rel="stylesheet" media="screen" href="public/add-product-main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="/"> home</a></li>
+        <li><a href="/add-product"> Add-product</a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="add-product-container">
+        <h2>Add Product</h2>
+        <form method="POST">
+          <input type="text" name="pName" required placeholder="Product" />
+
+          <input type="text" name="pCategory" required placeholder="Category" />
+
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

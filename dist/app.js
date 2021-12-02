@@ -5,52 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
-const product_1 = __importDefault(require("./models/product"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const path_1 = __importDefault(require("path"));
+const products_1 = __importDefault(require("./routes/products"));
 const app = (0, express_1.default)();
 const MyProducts = mongoose_1.default.model("Products");
+app.use(express_1.default.static(path_1.default.join(__dirname)));
 mongoose_1.default.Promise = global.Promise;
 const mongodbApi = "mongodb+srv://lokesh1407:lokesh1407@cluster0.hqxrl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 app.set("view engine", "ejs");
-app.set("views", "src/views");
+app.set("views", "views");
 app.use(body_parser_1.default.urlencoded({ extended: false }));
-app.get("/", (req, res, next) => {
-    MyProducts.find((err, docs) => {
-        if (!err) {
-            console.log(docs);
-            res.render("home.ejs", { products: docs });
-        }
-    });
-});
-app.get("/add-product", (req, res, next) => {
-    res.render("add-product.ejs");
-});
-app.post("/add-product", (req, res, next) => {
-    var newProduct = new product_1.default({
-        name: req.body.pName,
-        category: req.body.pCategory,
-    });
-    newProduct
-        .save()
-        .then((doc) => {
-        console.log(doc);
-    })
-        .catch((err) => {
-        console.log(err);
-    });
-    res.redirect("/");
-});
-app.post("/delete-product", (req, res, next) => {
-    const id = req.body.prodId;
-    MyProducts.findByIdAndDelete(id, (err, doc) => {
-        if (!err) {
-            res.redirect("/");
-        }
-        else {
-            console.log("failed to delete data");
-        }
-    });
-});
+app.use("/", products_1.default);
 try {
     mongoose_1.default.connect(mongodbApi, (err) => {
         if (!err)

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" media="screen" href="public/navbar.css" />
+    <link rel="stylesheet" media="screen" href="public/home-main.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="/"> home</a></li>
+        <li><a href="/add-product"> Add-product</a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="product-container">
+        <h2>Products</h2>
+        <%if(products.length===0) {%>
+        <h2>No products</h2>
+        <%} else {%>
+
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+          </tr>
+          <% for(const prod of products) {%>
+          <tr>
+            <td><%=prod.name%></td>
+            <td><%=prod.category%></td>
+            <td>
+              <form action="/delete-product" method="POST">
+                <input type="hidden" value="<%=prod._id%>" name="prodId" />
+                <button type="submit">delete</button>
+              </form>
+            </td>
+            <td>
+              <a
+                href="/edit-product/<%=prod._id%>/<%=prod.name%>/<%=prod.category%>"
+                >Edit</a
+              >
+            </td>
+          </tr>
+          <%}%>
+        </table>
+
+        <%}%>
+      </div>
+    </main>
+  </body>
+</html>
