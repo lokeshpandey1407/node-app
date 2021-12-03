@@ -7,6 +7,6 @@ router.get("/", products_1.getProducts);
 router.get("/add-product", products_1.addProduct);
 router.post("/add-product", products_1.postProduct);
 router.post("/delete-product", products_1.deleteProduct);
-router.get("/edit-product/:id/:name/:category", products_1.getEditProduct);
+router.get("/edit-product/:id", products_1.getEditProduct);
 router.post("/edit-product", products_1.postEditProduct);
 exports.default = router;

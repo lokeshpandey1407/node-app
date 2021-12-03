@@ -51,9 +51,10 @@ exports.deleteProduct = deleteProduct;
 let editId;
 const getEditProduct = (req, res, next) => {
     editId = req.params.id;
-    const name = req.params.name;
-    const category = req.params.category;
-    res.render("edit-product", { name: name, category: category });
+    MyProducts.findById(editId).then((item) => {
+        console.log(item.name);
+        res.render("edit-product", { name: item.name, category: item.category });
+    });
 };
 exports.getEditProduct = getEditProduct;
 const postEditProduct = (req, res, next) => {

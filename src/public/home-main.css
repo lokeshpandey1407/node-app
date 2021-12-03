@@ -21,12 +21,30 @@ table {
 
 .product-container button {
   padding: 0.2rem 0.3rem;
-  text-transform: uppercase;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 0.9rem;
+  border: 1px solid grey;
+}
+
+.product-container button:hover {
+  background-color: lightblue;
   border: none;
   outline: none;
 }
 
-.product-container button:hover {
+.product-container a {
+  padding: 0.2rem 0.3rem;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: black;
+  font-size: 0.9rem;
+  border: 1px solid grey;
+}
+
+.product-container a:hover {
   background-color: lightblue;
   border: none;
   outline: none;

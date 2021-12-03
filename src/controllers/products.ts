@@ -47,9 +47,10 @@ export const deleteProduct: RequestHandler = (req, res, next) => {
 let editId: string;
 export const getEditProduct: RequestHandler = (req, res, next) => {
   editId = req.params.id;
-  const name = req.params.name;
-  const category = req.params.category;
-  res.render("edit-product", { name: name, category: category });
+  MyProducts.findById(editId).then((item: any) => {
+    console.log(item.name);
+    res.render("edit-product", { name: item.name, category: item.category });
+  });
 };
 
 export const postEditProduct: RequestHandler = (req, res, next) => {
