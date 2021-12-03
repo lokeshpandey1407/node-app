@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 var Schema = mongoose.Schema;
 
 var productSchema = new Schema({
+  id: {
+    type: String,
+  },
   name: {
     type: String,
   },

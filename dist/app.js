@@ -10,11 +10,11 @@ const path_1 = __importDefault(require("path"));
 const products_1 = __importDefault(require("./routes/products"));
 const app = (0, express_1.default)();
 const MyProducts = mongoose_1.default.model("Products");
-app.use(express_1.default.static(path_1.default.join(__dirname)));
+app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
 mongoose_1.default.Promise = global.Promise;
 const mongodbApi = "mongodb+srv://lokesh1407:lokesh1407@cluster0.hqxrl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("views", "src/views");
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use("/", products_1.default);
 try {

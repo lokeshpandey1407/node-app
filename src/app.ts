@@ -7,14 +7,14 @@ import router from "./routes/products";
 const app = express();
 
 const MyProducts = mongoose.model("Products");
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.Promise = global.Promise;
 const mongodbApi =
   "mongodb+srv://lokesh1407:lokesh1407@cluster0.hqxrl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("views", "src/views");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", router);

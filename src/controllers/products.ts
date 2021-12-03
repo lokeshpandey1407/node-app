@@ -19,6 +19,7 @@ export const addProduct: RequestHandler = (req, res, next) => {
 
 export const postProduct: RequestHandler = (req, res, next) => {
   var newProduct = new Product({
+    id: Math.random().toString(),
     name: req.body.pName,
     category: req.body.pCategory,
   });
@@ -46,19 +47,16 @@ export const deleteProduct: RequestHandler = (req, res, next) => {
 
 let editId: string;
 export const getEditProduct: RequestHandler = (req, res, next) => {
-  editId = req.params.id;
-  MyProducts.findById(editId).then((item: any) => {
-    console.log(item.name);
-    res.render("edit-product", { name: item.name, category: item.category });
+  editId = req.params._id;
+  res.render("edit-product", {
+    name: req.params.name,
+    category: req.params.category,
   });
 };
 
 export const postEditProduct: RequestHandler = (req, res, next) => {
   const name = req.body.pName;
   const category = req.body.pCategory;
-  console.log(editId);
-  console.log(name);
-  console.log(category);
   MyProducts.findByIdAndUpdate(
     editId,
     {
