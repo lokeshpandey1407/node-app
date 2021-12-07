@@ -27,11 +27,11 @@ export const postProduct: RequestHandler = (req, res, next) => {
     .save()
     .then((doc: any) => {
       console.log(doc);
+      res.redirect("/");
     })
     .catch((err: any) => {
       console.log(err);
     });
-  res.redirect("/");
 };
 
 export const deleteProduct: RequestHandler = (req, res, next) => {

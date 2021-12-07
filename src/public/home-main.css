@@ -26,11 +26,11 @@ table {
   background-color: transparent;
   font-size: 0.9rem;
   border: 1px solid grey;
+  cursor: pointer;
 }
 
 .product-container button:hover {
   background-color: lightblue;
-  border: none;
   outline: none;
 }
 
@@ -46,6 +46,5 @@ table {
 
 .product-container a:hover {
   background-color: lightblue;
-  border: none;
   outline: none;
 }

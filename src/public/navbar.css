@@ -24,3 +24,10 @@
 .navbar a:hover {
   color: crimson;
 }
+
+input {
+  height: 30px;
+  width: 180px;
+  font-size: 0.9rem;
+  padding-left: 3px;
+}

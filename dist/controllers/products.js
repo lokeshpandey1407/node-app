@@ -30,11 +30,11 @@ const postProduct = (req, res, next) => {
         .save()
         .then((doc) => {
         console.log(doc);
+        res.redirect("/");
     })
         .catch((err) => {
         console.log(err);
     });
-    res.redirect("/");
 };
 exports.postProduct = postProduct;
 const deleteProduct = (req, res, next) => {
